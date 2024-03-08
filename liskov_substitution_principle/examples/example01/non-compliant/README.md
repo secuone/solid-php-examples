@@ -1,0 +1,7 @@
+The Liskov Substitution Principle states that objects of a base type should be replaceable by objects of any subtype in a way that the program continues to behave the same way. In the case of the `Square` and `Rectangle` classes, this principle is broken due to the difference in their expected behaviors.
+
+In a `Rectangle`, the `setLength()` and `setWidth()` methods allow changing the length and width independently, affecting the rectangle's area according to the formula `length * width`.
+
+However, in a `Square`, the relationship between length and width is fixed, as both dimensions are equal. Therefore, when calling `setLength()` on a `Square`, it's also expected for `setWidth()` to adjust to maintain the equality relationship. This contradicts the expected behavior of `setWidth()` in a `Rectangle`, where it's expected to adjust only the width without affecting the length.
+
+In the provided test example, when modifying the length of a `Square` and then checking the area, the area is expected to change according to the new length. However, since `setWidth()` is also called internally in `setLength()`, the relationship between length and width is altered, resulting in a different area than expected. This shows a violation of the Liskov Substitution Principle, as the `Square` cannot be replaced by a `Rectangle` without changing the expected behavior of the program.

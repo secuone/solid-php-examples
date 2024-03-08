@@ -1,0 +1,7 @@
+The Liskov Substitution Principle states that derived classes should be able to substitute their base classes without affecting the correct functioning of the program. In the case of the `Rectangle` and `Square` classes, there was initially a violation of this principle because a `Square` could not be fully substituted for a `Rectangle` without changing the expected behavior.
+
+By refactoring the design and removing the inheritance between `Square` and `Rectangle`, and instead, making both implement a common interface (`Shape`), this violation has been eliminated. Now, any method expecting a `Shape` object can work with instances of both `Rectangle` and `Square` without introducing unexpected behaviors.
+
+Furthermore, each class (`Rectangle` and `Square`) implements its own `getArea()` method consistently with its respective geometric shape. This ensures that the behavior of each class remains consistent and predictable, which is crucial for complying with the Liskov Substitution Principle.
+
+In summary, by refactoring the design so that both classes implement a common interface and maintain consistent behavior with their respective geometric shapes, compliance with the Liskov Substitution Principle has been achieved. Now, the `Rectangle` and `Square` classes can be treated interchangeably where a `Shape` object is expected, without introducing unexpected behaviors or violations of the design principle.
